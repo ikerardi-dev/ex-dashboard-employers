@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const isLogged = localStorage.getItem('isAuthenticated');
   if (isLogged === 'true') {
-    window.location.href = '/html/landing.html';
+    window.location.href = '/html/dashboard.html';
     return;
   }
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     sessionStorage.setItem('isAuthenticated', 'true');
     sessionStorage.setItem('userEmail', email);
-    window.location.href = '/html/landing.html';
+    window.location.href = '/html/dashboard.html';
   });
 
 

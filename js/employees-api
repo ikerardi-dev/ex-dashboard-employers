@@ -1,0 +1,41 @@
+// employees-api.js — llamadas a la API de empleados (mockapi.io de momento)
+
+const EMPLOYEES_API_URL = 'https://TU-PROYECTO.mockapi.io/employees';
+
+async function getEmployees() {
+  const res = await fetch(EMPLOYEES_API_URL);
+  if (!res.ok) throw new Error('Error al obtener empleados');
+  return res.json();
+}
+
+async function getEmployeeById(id) {
+  const res = await fetch(`${EMPLOYEES_API_URL}/${id}`);
+  if (!res.ok) throw new Error('Empleado no encontrado');
+  return res.json();
+}
+
+async function createEmployee(employee) {
+  const res = await fetch('https://6a476dfdabfcbaade1186467.mockapi.io/employees', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(employee),
+  });
+  if (!res.ok) throw new Error('Error al crear empleado');
+  return res.json();
+}
+
+async function updateEmployee(id, employee) {
+  const res = await fetch(`${EMPLOYEES_API_URL}/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(employee),
+  });
+  if (!res.ok) throw new Error('Error al actualizar empleado');
+  return res.json();
+}
+
+async function deleteEmployee(id) {
+  const res = await fetch(`${EMPLOYEES_API_URL}/${id}`, { method: 'DELETE' });
+  if (!res.ok) throw new Error('Error al eliminar empleado');
+  return res.json();
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | HR Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <header class="db-topbar">
+    <div class="db-topbar-left">
+      <button class="db-menu-btn" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <span class="db-title">Dashboard</span>
+    </div>
+    <img class="db-avatar" src="https://i.pravatar.cc/72" alt="Avatar del usuario" />
+  </header>
+
+  <main class="db-content">
+
+    <section class="db-kpi-list" id="kpi-list"></section>
+
+    <section class="db-section">
+      <div class="db-section-header">
+        <span class="db-section-title">Actividad Reciente</span>
+        <button class="db-section-link">Ver todo</button>
+      </div>
+      <div class="db-card" id="activity-list"></div>
+    </section>
+
+    <section class="db-quick-actions">
+      <h3>Acciones Rápidas</h3>
+      <p>Gestiona el talento de forma eficiente hoy.</p>
+      <button class="db-quick-actions-btn" id="add-employee-btn">
+        <i class="fa-solid fa-user-plus"></i>
+        Añadir Empleado
+      </button>
+    </section>
+
+    <section class="db-section">
+      <div class="db-section-header">
+        <span class="db-section-title">Próximos Eventos</span>
+      </div>
+      <div id="events-list"></div>
+    </section>
+
+  </main>
+
+  <button class="db-fab" id="fab-btn" aria-label="Acción rápida">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+
+  <nav class="db-bottom-nav">
+    <button class="db-nav-item active" data-page="dashboard.html">
+      <i class="fa-solid fa-grip"></i>
+      Dashboard
+    </button>
+    <button class="db-nav-item" data-page="employees.html">
+      <i class="fa-solid fa-users"></i>
+      Employees
+    </button>
+  </nav>
+
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

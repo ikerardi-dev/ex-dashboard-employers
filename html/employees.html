@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employees | HR Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <header class="db-topbar">
+    <div class="db-topbar-left">
+      <button class="db-menu-btn" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <span class="db-title">Employees</span>
+    </div>
+    <div class="emp-topbar-right">
+      <i class="fa-solid fa-bell emp-bell"></i>
+      <img class="db-avatar" src="https://i.pravatar.cc/72" alt="Avatar del usuario" />
+    </div>
+  </header>
+
+  <main class="db-content">
+
+    <div class="emp-search">
+      <div class="emp-search-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="Search by name or position" />
+      </div>
+    </div>
+
+    <div class="emp-alpha" id="alpha-filter">
+      <button class="emp-alpha-btn active" data-letter="ALL">ALL</button>
+      <!-- Las letras A-Z se generan desde employees.js -->
+    </div>
+
+    <div class="emp-list" id="employees-list">
+      <!-- Los emp-item se pintan desde employees.js -->
+    </div>
+
+  </main>
+
+  <nav class="db-bottom-nav">
+    <button class="db-nav-item" data-page="dashboard.html">
+      <i class="fa-solid fa-grip"></i>
+      Dashboard
+    </button>
+    <button class="db-nav-item active" data-page="employees.html">
+      <i class="fa-solid fa-users"></i>
+      Employees
+    </button>
+  </nav>
+<script src="/js/employees-api.js"></script>
+<script src="/js/employees.js"></script>
+</body>
+</html>
