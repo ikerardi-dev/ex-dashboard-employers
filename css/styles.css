@@ -318,31 +318,30 @@ body {
    ══════════════════════════════════════════════════════ */
 
 .db-topbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   padding: 14px 16px;
   background: #ffffff;
   border-bottom: 1px solid #e0e6eb;
 }
 
-.db-topbar-left {
+.db-topbar-side {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-.db-menu-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
+.db-topbar-side--right {
+  justify-content: flex-end;
 }
 
 .db-title {
   font-size: 17px;
   font-weight: 600;
   color: #1a6a8a;
+  text-align: center;
+  justify-self: center;
 }
 
 .db-avatar {
@@ -351,6 +350,30 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid #e0e6eb;
+}
+
+/* Móvil: el título desaparece y el avatar queda centrado */
+@media (max-width: 480px) {
+  .db-topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .db-topbar-side {
+    display: none;
+  }
+
+  .db-topbar-side--right {
+    display: flex;
+    justify-content: center;
+  }
+
+  .db-title {
+    display: none;
+  }
+
+  .emp-bell {
+    display: none;
+  }
 }
 
 .db-content {
@@ -446,31 +469,6 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-}
-
-/* Actividad reciente */
-.db-activity-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  cursor: pointer;
-}
-
-.db-activity-item + .db-activity-item {
-  border-top: 1px solid #e0e6eb;
-}
-
-.db-activity-text {
-  font-size: 13.5px;
-  color: #1a2a3a;
-  line-height: 1.4;
-}
-
-.db-activity-time {
-  font-size: 12px;
-  color: #9aaabb;
-  margin-top: 2px;
 }
 
 /* Acciones rápidas */
@@ -739,4 +737,110 @@ body {
   color: #9aaabb;
   font-size: 13px;
   padding: 24px 0;
+}
+/* ══════════════════════════════════════════════════════
+   MODAL: AÑADIR EVENTO
+   ══════════════════════════════════════════════════════ */
+
+.db-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.45);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.db-modal-overlay.visible {
+  display: flex;
+}
+
+.db-modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  padding: 20px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.db-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.db-modal-header h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.db-modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #6b7a8a;
+  cursor: pointer;
+}
+
+.db-modal-field {
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.db-modal-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #6b7a8a;
+  margin-bottom: 6px;
+}
+
+.db-modal-field select,
+.db-modal-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  color: #1a2a3a;
+  outline: none;
+}
+
+.db-modal-field select:focus,
+.db-modal-field input:focus {
+  border-color: #1a6a8a;
+  box-shadow: 0 0 0 3px rgba(26, 106, 138, 0.08);
+}
+
+.db-modal-row {
+  display: flex;
+  gap: 12px;
+}
+
+.db-modal-submit {
+  margin-top: 4px;
+}
+
+/* Botón eliminar evento */
+.db-event-delete {
+  background: none;
+  border: none;
+  color: #9aaabb;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.db-event-delete:hover {
+  color: #c0392b;
 }

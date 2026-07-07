@@ -3,6 +3,13 @@
 let allEmployees = [];
 let currentLetter = 'ALL';
 let currentSearch = '';
+let avatarMap = {};
+
+function assignAvatars(employees) {
+  employees.forEach((emp, index) => {
+    avatarMap[emp.id] = (index % 70) + 1;
+  });
+}
 
 function renderAlphaFilter() {
   const container = document.getElementById('alpha-filter');
@@ -54,7 +61,7 @@ function renderEmployeesList() {
     .map(
       (emp) => `
         <div class="db-card emp-item">
-          <img class="emp-avatar" src="https://i.pravatar.cc/80?u=${emp.id}" alt="${emp.name} ${emp.lastname}" />
+          <img class="emp-avatar" src="https://i.pravatar.cc/80?img=${avatarMap[emp.id]}" alt="${emp.name} ${emp.lastname}" />
           <div class="emp-info">
             <div class="emp-name">${emp.name} ${emp.lastname}</div>
             <div class="emp-job">${emp.job}</div>
@@ -83,6 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     allEmployees = await getEmployees();
+    assignAvatars(allEmployees);
     renderEmployeesList();
   } catch (err) {
     console.error(err);
