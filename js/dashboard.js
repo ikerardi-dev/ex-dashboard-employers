@@ -6,16 +6,16 @@ const dashboardData = {
   kpis: [
     {
       label: 'Total Empleados',
-      value: 150,
-      sub: '+4% este mes',
+      value: 10,
+      sub: '+11% este mes',
       positive: true,
       subIcon: 'fa-solid fa-arrow-trend-up',
       icon: 'fa-solid fa-users',
     },
     {
       label: 'Nuevas Contrataciones',
-      value: 12,
-      sub: 'En proceso: 5',
+      value: 5,
+      sub: 'En proceso: 2',
       positive: false,
       subIcon: 'fa-solid fa-circle-check',
       icon: 'fa-solid fa-user-plus',
