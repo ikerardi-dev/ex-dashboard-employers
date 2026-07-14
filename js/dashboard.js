@@ -137,7 +137,7 @@ function renderEvents() {
   });
 }
 
-// ─── Modal de "Añadir Evento" ───────────────────────────
+// ─── Añadir Evento ───────────────────────────
 
 async function populateEmployeeSelect() {
   const select = document.getElementById('event-employee');

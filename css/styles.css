@@ -844,3 +844,12 @@ body {
 .db-event-delete:hover {
   color: #c0392b;
 }
+
+/* Botón de cerrar sesión */
+.db-logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: inherit;
+}
