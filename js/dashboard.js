@@ -1,4 +1,4 @@
-// dashboard.js — lógica de la página Dashboard
+
 
 const EVENTS_STORAGE_KEY = 'hr-dashboard-events';
 
@@ -37,27 +37,27 @@ let employeesCache = [];
 
 // ─── Eventos: almacenamiento en localStorage ───────────
 
-function getEvents() {
+export function getEvents() {
   const raw = localStorage.getItem(EVENTS_STORAGE_KEY);
   return raw ? JSON.parse(raw) : [];
 }
 
-function saveEvents(events) {
+export function saveEvents(events) {
   localStorage.setItem(EVENTS_STORAGE_KEY, JSON.stringify(events));
 }
 
-function addEvent(event) {
+export function addEvent(event) {
   const events = getEvents();
   events.push({ id: Date.now().toString(), ...event });
   saveEvents(events);
 }
 
-function removeEvent(id) {
+export function removeEvent(id) {
   const events = getEvents().filter((e) => e.id !== id);
   saveEvents(events);
 }
 
-function getUpcomingEvents() {
+export function getUpcomingEvents() {
   const now = new Date();
   return getEvents()
     .map((e) => ({ ...e, dateObj: new Date(`${e.date}T${e.time || '00:00'}`) }))

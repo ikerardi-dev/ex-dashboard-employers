@@ -1,14 +1,27 @@
-// employees.js — lógica de la página Listado de Empleados
+
 
 let allEmployees = [];
 let currentLetter = 'ALL';
 let currentSearch = '';
 let avatarMap = {};
 
-function assignAvatars(employees) {
+export function assignAvatars(employees) {
   employees.forEach((emp, index) => {
     avatarMap[emp.id] = (index % 70) + 1;
   });
+}
+
+export function __setEmployeesForTest(employees) {
+  allEmployees = employees;
+}
+
+export function __setFilterStateForTest(letter, search) {
+  currentLetter = letter;
+  currentSearch = search;
+}
+
+export function __getAvatarMapForTest() {
+  return avatarMap;
 }
 
 function renderAlphaFilter() {
@@ -35,7 +48,7 @@ function renderAlphaFilter() {
   });
 }
 
-function getFilteredEmployees() {
+export function getFilteredEmployees() {
   return allEmployees.filter((emp) => {
     const matchesLetter = currentLetter === 'ALL' || emp.name.toUpperCase().startsWith(currentLetter);
     const search = currentSearch.toLowerCase();

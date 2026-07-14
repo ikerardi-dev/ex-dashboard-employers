@@ -1,6 +1,6 @@
 const EMPLOYEES_API_URL = 'https://jsonplaceholder.typicode.com/users';
 
-function normalizeUser(user) {
+export function normalizeUser(user) {
   const [name, ...rest] = user.name.split(' ');
   return {
     id: user.id,
@@ -11,14 +11,14 @@ function normalizeUser(user) {
   };
 }
 
-async function getEmployees() {
+export async function getEmployees() {
   const res = await fetch(EMPLOYEES_API_URL);
   if (!res.ok) throw new Error('Error al obtener empleados');
   const users = await res.json();
   return users.map(normalizeUser);
 }
 
-async function getEmployeeById(id) {
+export async function getEmployeeById(id) {
   const res = await fetch(`${EMPLOYEES_API_URL}/${id}`);
   if (!res.ok) throw new Error('Empleado no encontrado');
   const user = await res.json();
@@ -27,7 +27,7 @@ async function getEmployeeById(id) {
 
 // Nota: jsonplaceholder simula estas operaciones (responde OK) pero no
 // persiste realmente los cambios en su servidor.
-async function createEmployee({ name, lastname, job, city }) {
+export async function createEmployee({ name, lastname, job, city }) {
   const res = await fetch(EMPLOYEES_API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -41,7 +41,7 @@ async function createEmployee({ name, lastname, job, city }) {
   return res.json();
 }
 
-async function updateEmployee(id, { name, lastname, job, city }) {
+export async function updateEmployee(id, { name, lastname, job, city }) {
   const res = await fetch(`${EMPLOYEES_API_URL}/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
@@ -55,7 +55,7 @@ async function updateEmployee(id, { name, lastname, job, city }) {
   return res.json();
 }
 
-async function deleteEmployee(id) {
+export async function deleteEmployee(id) {
   const res = await fetch(`${EMPLOYEES_API_URL}/${id}`, { method: 'DELETE' });
   if (!res.ok) throw new Error('Error al eliminar empleado');
   return res.json();

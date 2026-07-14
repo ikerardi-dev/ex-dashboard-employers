@@ -1,6 +1,6 @@
 
 
-function initLogout() {
+export function initLogout() {
   const btn = document.getElementById('logout-btn');
   if (!btn) return;
 

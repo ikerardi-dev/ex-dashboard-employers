@@ -1,5 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+export function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
+document.addEventListener('DOMContentLoaded', () => {
 
   const isLogged = localStorage.getItem('isAuthenticated');
   if (isLogged === 'true') {
@@ -7,14 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  
   const form       = document.getElementById('loginForm');
   const emailInput = document.getElementById('email');
   const pwInput    = document.getElementById('password');
   const toggleBtn  = document.getElementById('togglePw');
   const eyeIcon    = document.getElementById('eyeIcon');
   const errorMsg   = document.getElementById('error-msg');
-
 
   toggleBtn.addEventListener('click', () => {
     const isHidden = pwInput.type === 'password';
@@ -23,18 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBtn.setAttribute('aria-label', isHidden ? 'Ocultar contraseña' : 'Mostrar contraseña');
   });
 
-
   [emailInput, pwInput].forEach(input => {
     input.addEventListener('input', () => hideError());
   });
-
 
   form.addEventListener('submit', (e) => {
     e.preventDefault(); // evitamos el POST al servidor
 
     const email = emailInput.value.trim();
     const pw    = pwInput.value.trim();
-
 
     if (!email || !pw) {
       showError('Por favor completa todos los campos.');
@@ -46,12 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    
     sessionStorage.setItem('isAuthenticated', 'true');
     sessionStorage.setItem('userEmail', email);
     window.location.href = '/html/dashboard.html';
   });
-
 
   function showError(msg) {
     errorMsg.textContent = msg;
@@ -61,10 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function hideError() {
     errorMsg.textContent = '';
     errorMsg.classList.remove('visible');
-  }
-
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
 });
