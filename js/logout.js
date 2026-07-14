@@ -6,8 +6,8 @@ export function initLogout() {
 
   btn.addEventListener('click', () => {
     localStorage.removeItem('hr-current-user');
-    window.location.href = 'login.html';
-  });
+    window.location.href = './login.html';
+});
 }
 
 document.addEventListener('DOMContentLoaded', initLogout);

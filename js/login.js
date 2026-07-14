@@ -2,6 +2,10 @@ export function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+export function isValidPassword(password) {
+  return password.length >= 8;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const isLogged = localStorage.getItem('isAuthenticated');
@@ -41,6 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!isValidEmail(email)) {
       showError('Introduce un email válido.');
+      return;
+    }
+
+    if (!isValidPassword(pw)) {
+      showError('La contraseña debe tener al menos 8 caracteres.');
       return;
     }
 
