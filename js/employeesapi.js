@@ -1,7 +1,3 @@
-// employees-api.js — llamadas a la API de empleados (jsonplaceholder.typicode.com)
-// Esta API no tiene los campos exactos que necesitamos (lastname, job, city),
-// así que normalizeUser() los adapta a partir de lo que sí trae.
-
 const EMPLOYEES_API_URL = 'https://jsonplaceholder.typicode.com/users';
 
 function normalizeUser(user) {
