@@ -1,4 +1,4 @@
-
+import { getEmployees } from './employeesapi.js';
 
 const EVENTS_STORAGE_KEY = 'hr-dashboard-events';
 

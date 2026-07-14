@@ -1,4 +1,4 @@
-
+import { getEmployees } from './employeesapi.js';
 
 let allEmployees = [];
 let currentLetter = 'ALL';
