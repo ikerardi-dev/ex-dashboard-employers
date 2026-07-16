@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | HR Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <header class="db-topbar">
+    <div class="db-topbar-side"></div>
+    <span class="db-title">Dashboard</span>
+    <div class="db-topbar-side db-topbar-side--right">
+      <img class="db-avatar" src="https://i.pravatar.cc/72?u=usuario-logueado" alt="Avatar del usuario" />
+       <button class="db-logout-btn" id="logout-btn" aria-label="Cerrar sesión">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    </div>
+  </header>
+
+  <main class="db-content">
+
+    <section class="db-kpi-list" id="kpi-list"></section>
+
+    <section class="db-section">
+      <div class="db-section-header">
+        <span class="db-section-title">Próximos Eventos</span>
+        <button class="db-section-link" id="add-event-btn">+ Añadir</button>
+      </div>
+      <div id="events-list"></div>
+    </section>
+
+  </main>
+
+  <button class="db-fab" id="fab-btn" aria-label="Añadir evento">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+
+  <!-- Modal: Añadir Evento -->
+  <div class="db-modal-overlay" id="event-modal-overlay">
+    <div class="db-modal">
+      <div class="db-modal-header">
+        <h3>Añadir Evento</h3>
+        <button class="db-modal-close" id="event-modal-close" aria-label="Cerrar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="event-form">
+        <div class="db-modal-field">
+          <label for="event-type">Tipo de evento</label>
+          <select id="event-type" required>
+            <option value="Cumpleaños">Cumpleaños</option>
+            <option value="Reunión">Reunión</option>
+          </select>
+        </div>
+
+        <div class="db-modal-field">
+          <label for="event-employee">Empleado</label>
+          <select id="event-employee" required>
+            <option value="" disabled selected>Cargando empleados…</option>
+          </select>
+        </div>
+
+        <div class="db-modal-row">
+          <div class="db-modal-field">
+            <label for="event-date">Fecha</label>
+            <input type="date" id="event-date" required />
+          </div>
+          <div class="db-modal-field">
+            <label for="event-time">Hora</label>
+            <input type="time" id="event-time" required />
+          </div>
+        </div>
+
+        <div class="db-modal-field">
+          <label for="event-description">Descripción</label>
+          <input type="text" id="event-description" placeholder="Ej: Sala B, cumple 30 años..." />
+        </div>
+
+        <button type="submit" class="db-quick-actions-btn db-modal-submit">Guardar evento</button>
+      </form>
+    </div>
+  </div>
+
+  <nav class="db-bottom-nav">
+    <button class="db-nav-item active" data-page="dashboard.html">
+      <i class="fa-solid fa-grip"></i>
+      Dashboard
+    </button>
+    <button class="db-nav-item" data-page="employees.html">
+      <i class="fa-solid fa-users"></i>
+      Employees
+    </button>
+  </nav>
+
+  <script type="module" src="../js/employeesapi.js"></script>
+  <script type="module" src="../js/dashboard.js"></script>
+  <script type="module" src="../js/logout.js"></script>
+</body>
+</html>
