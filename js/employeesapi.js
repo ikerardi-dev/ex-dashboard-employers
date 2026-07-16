@@ -25,8 +25,6 @@ export async function getEmployeeById(id) {
   return normalizeUser(user);
 }
 
-// Nota: jsonplaceholder simula estas operaciones (responde OK) pero no
-// persiste realmente los cambios en su servidor.
 export async function createEmployee({ name, lastname, job, city }) {
   const res = await fetch(EMPLOYEES_API_URL, {
     method: 'POST',

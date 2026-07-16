@@ -1,5 +1,5 @@
-import { getEmployees } from './employeesapi.js';
-import { initLogout } from './logout.js';
+import { getEmployees } from '../employeesapi.js';
+import { initLogout } from '.../logout.js';
 
 let allEmployees = [];
 let currentLetter = 'ALL';
