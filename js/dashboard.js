@@ -1,5 +1,5 @@
-import { getEmployees } from '../employeesapi.js';
-import { initLogout } from '../logout.js';
+import { getEmployees } from './employeesapi.js';
+import { initLogout } from './logout.js';
 
 const EVENTS_STORAGE_KEY = 'hr-dashboard-events';
 
